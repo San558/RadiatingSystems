@@ -1,0 +1,22 @@
+clc;
+close all;
+clear all;
+
+phi = 0:0.01*pi:2*pi;
+n = 10;
+c = 3e8;
+f = 2e6;
+lambda = c/f;
+d = lambda/2;
+dr = (2*pi/lambda)*d;
+delta = -dr;
+psi = (dr*cos(phi))+delta;
+e = (1/n) * abs(sin(n*psi/2)./sin(psi/2));
+subplot(1,2,1);
+polar(phi,e);
+title('Radiation Pattern');
+subplot(1,2,2);
+plot(phi*180/pi,e);
+xlabel('angle(in degrees)');
+ylabel('absolute gain');
+grid on;
